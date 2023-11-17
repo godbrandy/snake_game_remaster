@@ -35,6 +35,7 @@ Game::Game(MainWindow& wnd)
 
 void Game::Go()
 {
+	pad.InitGamepad();
 	gfx.BeginFrame();	
 	UpdateModel();
 	ComposeFrame();
@@ -46,19 +47,19 @@ void Game::UpdateModel()
 
 	if (!game_is_over)
 	{
-		if (wnd.kbd.KeyIsPressed(VK_UP))
+		if (wnd.kbd.KeyIsPressed(VK_UP) || pad.GetPadUp())
 		{
 			delta_loc = { 0, -1 };
 		}
-		if (wnd.kbd.KeyIsPressed(VK_DOWN))
+		if (wnd.kbd.KeyIsPressed(VK_DOWN) || pad.GetPadDown())
 		{
 			delta_loc = { 0, +1 };
 		}
-		if (wnd.kbd.KeyIsPressed(VK_LEFT))
+		if (wnd.kbd.KeyIsPressed(VK_LEFT) || pad.GetPadLeft())
 		{
 			delta_loc = { -1, 0 };
 		}
-		if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+		if (wnd.kbd.KeyIsPressed(VK_RIGHT) || pad.GetPadRight())
 		{
 			delta_loc = { +1, -0 };
 		}

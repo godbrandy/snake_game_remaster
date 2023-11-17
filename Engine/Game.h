@@ -27,6 +27,7 @@
 #include <random>
 #include "Snake.h"
 #include "Goal.h"
+#include "gamepad.h"
 
 class Game
 {
@@ -57,4 +58,5 @@ private:
 	static constexpr int snake_speed{ 20 };
 	int snake_move_counter{ 0 };
 	bool game_is_over{ false };
+	Gamepad pad{};
 };
